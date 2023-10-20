@@ -2,8 +2,8 @@ import NavBar from "./NavBar";
 import Button from "react-bootstrap/esm/Button";
 import React, { useState } from "react";
 
-export default function NewForm(data) {
-  let message = "";
+export default function NewForm(data: any) {
+  let message:any = "";
   if (data.message) {
     message = <h4 className="alert-danger">{data.message}</h4>;
   }
@@ -17,7 +17,7 @@ export default function NewForm(data) {
     runtime_minutes: 90,
   });
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event:any) => {
     event.preventDefault();
 
     try {

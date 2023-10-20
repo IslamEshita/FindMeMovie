@@ -3,7 +3,7 @@ import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 
-export default function Movie({ movie }) {
+export default function Movie({ movie } : any) {
   console.log(movie);
 
   let navigate = useNavigate();
@@ -13,10 +13,10 @@ export default function Movie({ movie }) {
   };
 
   const refreshPage = () => {
-    window.location.reload(true);
+    window.location.reload();
   };
 
-  const handleDeleteClick = async (event) => {
+  const handleDeleteClick = async (event:any) => {
     event.preventDefault();
 
     try {

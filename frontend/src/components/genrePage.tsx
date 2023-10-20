@@ -7,13 +7,13 @@ import React, { useState, useEffect } from "react";
 
 const BACKEND_BASE_URL = "http://localhost:3003";
 
-export default function GenrePage({ genre }) {
-  const [movies, setMovies] = useState(null);
+export default function GenrePage({ genre } : any) {
+  const [movies, setMovies] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<any>(null);
 
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+  function capitalizeFirstLetter(item: string) {
+    return item.charAt(0).toUpperCase() + item.slice(1);
   }
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function GenrePage({ genre }) {
         const jsonData = await response.json();
         setMovies(jsonData);
         setLoading(false);
-      } catch (error) {
+      } catch (error: any) {
         setError(error);
         setLoading(false);
       }
@@ -42,6 +42,14 @@ export default function GenrePage({ genre }) {
     return <p>Error: {error.message}</p>;
   }
 
+  function getMovies() {
+    if(movies != null) {
+      movies.map((movie: any) => {
+        return <Movie key={movie._id} movie={movie} />;
+      })
+    }    
+  }
+
   return (
     <>
       <NavBar />
@@ -49,7 +57,7 @@ export default function GenrePage({ genre }) {
         <div>
           <Container>
             <Row>
-              {movies.map((movie) => {
+              {movies.map((movie: any) => {
                 return <Movie key={movie._id} movie={movie} />;
               })}
             </Row>

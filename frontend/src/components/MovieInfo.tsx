@@ -19,7 +19,7 @@ export default function MovieInfo() {
     runtime_minutes: movie.runtime_minutes,
   });
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event : any) => {
     event.preventDefault();
 
     try {
